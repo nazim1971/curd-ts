@@ -1,4 +1,4 @@
-import express from "express";
+import express, {Response, Request} from "express";
 import connectDB from "./db/db";
 
 
@@ -15,7 +15,11 @@ const startServer = async () => {
     try {
       // Connect to the database
       await connectDB(); // Await the database connection
-  
+      
+
+      app.get('/', (req:Request,res:Response)=>{
+        res.json("My Curd is on Fire")
+      } )
       // Start the server after successful DB connection
       app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
