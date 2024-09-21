@@ -72,7 +72,35 @@ const deleteOnePro = async (req:Request, res:Response)=>{
         }
         res.status(200).json({
             success: true,
-            message: "Product deleted successfully",
+            data: pro
+        })
+    } catch (error: unknown){
+        const err = error as Error
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch products",
+            error: err.message,
+        })
+    }
+}
+
+const updateOnePro = async (req:Request, res:Response)=>{
+    try {
+        const { id } = req.params; 
+        const update = req.body;
+        const pro = await products.updateOne({_id:id}, update,{
+            new: true,
+            runValidators: true
+        });
+
+        if(!pro){
+            return res.status(404).json({
+                success: false,
+                message: "Product not found",
+              });
+        }
+        res.status(200).json({
+            success: true,
             data: pro
         })
     } catch (error: unknown){
@@ -86,6 +114,4 @@ const deleteOnePro = async (req:Request, res:Response)=>{
 }
 
 
-
-
-export default {getAllProducts, addProduct, getOnePro, deleteOnePro}
+export default {getAllProducts, addProduct, getOnePro, deleteOnePro, updateOnePro}

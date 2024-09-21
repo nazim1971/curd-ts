@@ -20,8 +20,8 @@ const productsModel: Schema = new mongoose.Schema({
     rating: {
         type: Number,
         required: [true, "Product ratting is required"],
-        min: [1, "minimum price of the product should be 1"],
-        max: [5, "minimum price of the product should be 5"]
+        min: [1, "minimum Rating of the product should be 1"],
+        max: [5, "minimum Rating of the product should be 5"]
     }
 })
 //product model 
