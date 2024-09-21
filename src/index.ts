@@ -20,7 +20,7 @@ const startServer = async () => {
       app.get('/', (req:Request,res:Response)=>{
         res.json("My Curd is on Fire")
       } )
-      // Start the server after successful DB connection
+
       app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
       });
