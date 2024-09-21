@@ -17,7 +17,7 @@ const productsModel: Schema = new mongoose.Schema({
         required: [true, "Product price is required"],
         min: [1, "minimum price of the product should be 1"]
     },
-    ratting: {
+    rating: {
         type: Number,
         required: [true, "Product ratting is required"],
         min: [1, "minimum price of the product should be 1"],
@@ -25,4 +25,6 @@ const productsModel: Schema = new mongoose.Schema({
     }
 })
 //product model 
-const products = mongoose.model<IProduct>('products', productsModel)
+const products = mongoose.model<IProduct>('products', productsModel);
+
+export default products;

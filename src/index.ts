@@ -1,6 +1,6 @@
 import express, {Response, Request} from "express";
 import connectDB from "./db/db";
-
+import productsRoute from "./routes/productsRoute";
 
 const app = express();
 const PORT = 5000;
@@ -17,10 +17,11 @@ const startServer = async () => {
       await connectDB(); // Await the database connection
       
 
+      app.use('/v1',productsRoute);
+
       app.get('/', (req:Request,res:Response)=>{
         res.json("My Curd is on Fire")
       } )
-
       app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
       });
