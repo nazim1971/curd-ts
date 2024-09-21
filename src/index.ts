@@ -3,7 +3,7 @@ import connectDB from "./db/db";
 import productsRoute from "./routes/productsRoute";
 
 const app = express();
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 //middlewire
 app.use(express.json());
@@ -22,8 +22,8 @@ const startServer = async () => {
       app.get('/', (req:Request,res:Response)=>{
         res.json("My Curd is on Fire")
       } )
-      app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
+      app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
       });
     } catch (error) {
       console.error("Failed to connect to the database:", error);
