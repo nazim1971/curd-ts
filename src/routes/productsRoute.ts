@@ -4,6 +4,9 @@ import productsController from "../controllers/productsController";
 
 const router = Router();
 
-router.get('/allPro', productsController.getAllProducts)
+router.get('/allPro', productsController.getAllProducts);
+router.post('/addPro', productsController.addProduct);
+router.get('/allPro/:id', productsController.getOnePro);
+router.delete('/onePro/:id', productsController.deleteOnePro);
 
 export default router;

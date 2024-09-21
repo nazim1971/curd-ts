@@ -14,7 +14,7 @@ app.use(express.json());
 const startServer = async () => {
     try {
       // Connect to the database
-      await connectDB(); // Await the database connection
+      await connectDB();
       
 
       app.use('/v1',productsRoute);
