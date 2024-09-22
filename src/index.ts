@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 
-// Define a function to start the server
+
 const startServer = async () => {
     try {
       // Connect to the database
@@ -23,7 +23,7 @@ const startServer = async () => {
         res.json("My Curd is on Fire")
       } )
       app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
+        console.log(` Server is running on port ${port}`);
       });
     } catch (error) {
       console.error("Failed to connect to the database:", error);
