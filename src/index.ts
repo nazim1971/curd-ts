@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 
-
+// Define a function to start the server
 const startServer = async () => {
     try {
       // Connect to the database
